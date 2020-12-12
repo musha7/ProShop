@@ -16,7 +16,7 @@ export const listProducts = () => async (dispatch) => {
                 error.message
         })
     }
-}
+} 
 
 export const listProductsDetails = (id) => async (dispatch) => {
     try {

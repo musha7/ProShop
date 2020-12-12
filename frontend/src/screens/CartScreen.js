@@ -13,7 +13,6 @@ const CartScreen = ({ history, match, location }) => {
 
     const cart = useSelector(state => state.cart);
     const { cartItems } = cart;
-    //product, name, image, price, countInStock 
     useEffect(() => {
         if (productId) {
             dispatch(addToCart(productId, qty))
@@ -24,8 +23,8 @@ const CartScreen = ({ history, match, location }) => {
         dispatch(removeFromCart(id))
     }
 
-    const checkOutHandle = () => {
-        history.push('login?redirect=shipping')
+    const checkOutHandler = () => {
+        history.push('/login?redirect=/shipping')
     }
 
 
@@ -74,7 +73,7 @@ const CartScreen = ({ history, match, location }) => {
                             ${cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)}
                         </ListGroupItem>
                         <ListGroupItem>
-                            <Button type='button' className='btn-block' disabled={cartItems.length === 0} onClick={checkOutHandle}>
+                            <Button type='button' className='btn-block' disabled={cartItems.length === 0} onClick={checkOutHandler}>
                                 Proceed To Checkout
                             </Button>
                         </ListGroupItem>
