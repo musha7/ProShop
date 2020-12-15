@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap';
+import { Row, Col, Image, ListGroup, Card } from 'react-bootstrap';
 import Message from '../components/Message';
 import Loader from '../components/Loader'
-import CheckOutSteps from '../components/CheckOutSteps';
 import { getOrderDetails } from '../actions/orderActions';
 
 
@@ -19,7 +18,7 @@ const OrderScreen = ({ match }) => {
     }
     useEffect(() => {
         dispatch(getOrderDetails(orderId));
-    }, [])
+    }, [orderId, dispatch])
 
 
     return loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> :

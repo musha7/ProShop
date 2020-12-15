@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { listProductDetails, createProductReview } from '../actions/productActions'
 import { Row, Col, Image, ListGroup, Card, Button, ListGroupItem, Form } from 'react-bootstrap'
+import { Helmet } from 'react-helmet';
 import Rating from '../components/Rating'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
@@ -49,6 +50,7 @@ const ProductScreen = ({ history, match }) => {
             {loading ? (<Loader />) : error ? (<Message variant='danger'>{error}</Message>) :
                 (
                     <>
+                        <Helmet> <title> {`${product.name}`}</title></Helmet>
                         <Row>
                             <Col md={5}>
                                 <Image src={product.image} alt={product.name} fluid />
